@@ -16,12 +16,13 @@ public enum ErrorStatus implements BaseErrorCode {
     _UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "COMMON401", "인증이 필요합니다."),
     _FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "금지된 요청입니다."),
     // For test
-    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트");;
+    TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "이거는 테스트"),
 
 
     // 멤버 관련 응답
 
-    // ~~~ 관련 응답 ....
+    // Food Category 관련
+    FOOD_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "404","해당 음식 카테고리는 존재하지 않습니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
