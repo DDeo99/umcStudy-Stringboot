@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="Store")
+@Entity
 @Table(name="store")
 public class Store extends BaseEntity {
 

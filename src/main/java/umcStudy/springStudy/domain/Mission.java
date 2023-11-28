@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="Mission")
+@Entity
 @Table(name="mission")
 public class Mission extends BaseEntity {
 

@@ -11,7 +11,7 @@ import umcStudy.springStudy.domain.Member;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="MemberMission")
+@Entity
 @Table(name="member_mission")
 public class MemberMission extends BaseEntity {
 
@@ -22,10 +22,10 @@ public class MemberMission extends BaseEntity {
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mission_id", referencedColumnName = "id")
+    @JoinColumn(name = "mission_id")
     private Mission mission;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "memebr_id", referencedColumnName = "id")
+    @JoinColumn(name = "memebr_id")
     private Member member;
 }

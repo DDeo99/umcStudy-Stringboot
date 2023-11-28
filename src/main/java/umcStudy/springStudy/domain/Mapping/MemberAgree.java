@@ -11,7 +11,7 @@ import umcStudy.springStudy.domain.Member;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="MemberAgree")
+@Entity
 @Table(name="member_agree")
 public class MemberAgree extends BaseEntity {
 
@@ -20,11 +20,11 @@ public class MemberAgree extends BaseEntity {
     private long id;
 
     @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name="member_id",referencedColumnName = "id")
+    @JoinColumn(name="member_id")
     private Member member;
 
     @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name="terms_id",referencedColumnName = "id")
+    @JoinColumn(name="terms_id")
     private Terms terms;
 
 }

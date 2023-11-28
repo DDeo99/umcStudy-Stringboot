@@ -11,7 +11,7 @@ import umcStudy.springStudy.domain.Member;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="MemberPrefer")
+@Entity
 @Table(name="member_prefer")
 public class MemberPrefer extends BaseEntity {
     @Id
@@ -19,10 +19,21 @@ public class MemberPrefer extends BaseEntity {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="member_id",referencedColumnName = "id")
+    @JoinColumn(name="member_id")
     private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category",referencedColumnName = "id")
+    @JoinColumn(name="category_id")
     private FoodCategory foodCategory;
+
+    public void setMember(Member member){
+        if(this.member != null)
+            member.getMemberPreferList().remove(this);
+        this.member = member;
+        member.getMemberPreferList().add(this);
+    }
+
+    public void setFoodCategory(FoodCategory foodCategory){
+        this.foodCategory = foodCategory;
+    }
 }

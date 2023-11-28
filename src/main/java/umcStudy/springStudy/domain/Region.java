@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="Region")
+@Entity
 @Table(name="region")
 public class Region extends BaseEntity {
 

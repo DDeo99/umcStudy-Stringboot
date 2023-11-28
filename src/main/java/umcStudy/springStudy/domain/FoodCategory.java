@@ -9,7 +9,7 @@ import umcStudy.springStudy.domain.common.BaseEntity;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="FoodCategory")
+@Entity
 @Table(name="food_category")
 public class FoodCategory extends BaseEntity {
     @Id

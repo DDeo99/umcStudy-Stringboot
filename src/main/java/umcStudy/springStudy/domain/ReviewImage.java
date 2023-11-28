@@ -9,7 +9,7 @@ import umcStudy.springStudy.domain.common.BaseEntity;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Entity(name="ReviewImage")
+@Entity
 @Table(name="review_image")
 public class ReviewImage extends BaseEntity {
     @Id
