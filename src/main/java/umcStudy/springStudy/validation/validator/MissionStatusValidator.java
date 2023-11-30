@@ -4,15 +4,16 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
+import umcStudy.springStudy.validation.annotation.CheckMissionStatus;
 import umcStudy.springStudy.validation.annotation.ExistCategories;
 
 import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
-public class MissionStatusValidator implements ConstraintValidator<ExistCategories, String> {
+public class MissionStatusValidator implements ConstraintValidator<CheckMissionStatus, String> {
     @Override
-    public void initialize(ExistCategories constraintAnnotation) {
+    public void initialize(CheckMissionStatus constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
