@@ -7,4 +7,5 @@ import umcStudy.springStudy.domain.Store;
 @Repository
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
+    boolean existsByName(String name);
 }
