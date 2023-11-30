@@ -28,4 +28,8 @@ public class StoreServiceImpl implements StoreService{
 
         storeRepository.save(store);
     }
+
+    public boolean existsByName(String name){
+        return storeRepository.existsByName(name);
+    }
 }
