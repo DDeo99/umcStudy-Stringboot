@@ -1,10 +1,10 @@
-package umcStudy.week9;
+package umcStudy.springStudy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Week9ApplicationTests {
+class SpringStudyApplicationTests {
 
 	@Test
 	void contextLoads() {
