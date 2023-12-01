@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import umcStudy.springStudy.domain.Review;
 import umcStudy.springStudy.web.dto.request.ReviewRequest;
+import umcStudy.springStudy.web.dto.response.MemberResponseDTO;
 import umcStudy.springStudy.web.dto.response.StoreResponseDTO;
 
 import java.time.LocalDateTime;
@@ -50,6 +51,41 @@ public class ReviewConverter {
                 .build();
     }
     public static StoreResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO(List<Review> reviewList){
+        return null;
+    }
+
+
+
+    public static MemberResponseDTO.CreateReviewResultDTO toCreateReviewResultDTO2(Review review){
+        return MemberResponseDTO.CreateReviewResultDTO.builder()
+                .reviewId(review.getId())
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
+
+    public static MemberResponseDTO.ReviewDTO reviewDTO(Review review){
+        return MemberResponseDTO.ReviewDTO.builder()
+                .name(review.getMember().getName())
+                .score(review.getScore())
+                .createdAt(review.getCreatedAt().toLocalDate())
+                .body(review.getBody())
+                .build();
+    }
+    public static MemberResponseDTO.ReviewListDTO reviewListDTO(Page<Review> reviewList){
+
+        List<MemberResponseDTO.ReviewDTO> reviewDTOList = reviewList.stream()
+                .map(ReviewConverter::reviewDTO).collect(Collectors.toList());
+
+        return MemberResponseDTO.ReviewListDTO.builder()
+                .isLast(reviewList.isLast())
+                .isFirst(reviewList.isFirst())
+                .totalPage(reviewList.getTotalPages())
+                .totalElements(reviewList.getTotalElements())
+                .listSize(reviewDTOList.size())
+                .reviewList(reviewDTOList)
+                .build();
+    }
+    public static MemberResponseDTO.ReviewListDTO reviewListDTO(List<Review> reviewList){
         return null;
     }
 
