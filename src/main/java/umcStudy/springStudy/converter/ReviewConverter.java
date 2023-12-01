@@ -8,7 +8,9 @@ public class ReviewConverter {
 
     public static Review toReview(ReviewRequest.AddReivewDTO request) {
         return Review.builder()
-                .body(request.getReview())
+                .head(request.getReviewHead())
+                .body(request.getReviewBody())
+                .score(request.getScore())
                 .build();
     }
 }
