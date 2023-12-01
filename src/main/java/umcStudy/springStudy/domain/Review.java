@@ -19,6 +19,8 @@ public class Review extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String head;
+
     private String body;
 
     private float score;
