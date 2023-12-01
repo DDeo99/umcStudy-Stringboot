@@ -9,23 +9,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class MemberResponseDTO {
+public class StoreResponseDTO {
 
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class JoinResultDTO {
-        Long memberId;
-        LocalDateTime createdAt;
-    }
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class ReviewListDTO {
-        List<MemberResponseDTO.ReviewDTO> reviewList;
+    public static class ReviewPreViewListDTO{
+        List<ReviewPreViewDTO> reviewList;
         Integer listSize;
         Integer totalPage;
         Long totalElements;
@@ -37,8 +28,8 @@ public class MemberResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class ReviewDTO{
-        String name;
+    public static class ReviewPreViewDTO{
+        String ownerNickname;
         Float score;
         String body;
         LocalDate createdAt;
