@@ -22,7 +22,7 @@ public class MissionRestController {
 
     private final MissionService missionService;
 
-    @PostMapping("/{store_id}")
+    @PostMapping("/stores/{store_id}")
     public ApiResponse<String> AddMission(@PathVariable("store_id") Long storeId,
                                           @RequestBody @Valid MissionRequest.AddMissionDTO request) {
 
@@ -39,6 +39,13 @@ public class MissionRestController {
         Page<Mission> missionPage = missionService.getMyMissionList(memberId, page-1);
         MissionResponseDTO.MissionListDTO missionListDTO = MissionConverter.missionListDTO(missionPage);
         return ApiResponse.onSuccess(missionListDTO);
+    }
+
+    @PostMapping("/{missionId}")
+    public ApiResponse<String> completeMission(@RequestParam("missionId") Long missionId) {
+        missionService.completeMission(missionId);
+
+        return ApiResponse.onSuccess(null);
     }
 
 }
