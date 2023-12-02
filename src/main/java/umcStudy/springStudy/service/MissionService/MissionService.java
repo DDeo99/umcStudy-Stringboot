@@ -8,4 +8,6 @@ public interface MissionService {
     void AddMission(MissionRequest.AddMissionDTO request, Long storeId);
 
     Page<Mission> getMyMissionList(Long memberId, Integer page);
+
+    void completeMission(Long missionId);
 }
