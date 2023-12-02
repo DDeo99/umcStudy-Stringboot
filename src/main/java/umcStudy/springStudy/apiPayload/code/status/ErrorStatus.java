@@ -28,7 +28,10 @@ public enum ErrorStatus implements BaseErrorCode {
     MISSION_IS_INPROGRESS(HttpStatus.CONFLICT , "409","해당 미션은 이미 수행중입니다."),
 
     // Store 관련
-    STORE_NOT_FOUND(HttpStatus.NOT_FOUND,"400","해당 가게는 존재하지 않습니다.");
+    STORE_NOT_FOUND(HttpStatus.NOT_FOUND,"400","해당 가게는 존재하지 않습니다."),
+
+    // Pagine 관련
+    PAGING_BAD_REQUEST(HttpStatus.BAD_REQUEST,"400","페이지 번호는 1부터 입니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
