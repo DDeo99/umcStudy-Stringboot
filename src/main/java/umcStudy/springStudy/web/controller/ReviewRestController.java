@@ -16,6 +16,7 @@ import umcStudy.springStudy.domain.Review;
 import umcStudy.springStudy.service.MemberService.MemberCommandService;
 import umcStudy.springStudy.service.ReviewService.ReviewService;
 import umcStudy.springStudy.service.StoreService.StoreQueryService;
+import umcStudy.springStudy.validation.annotation.CheckPaging;
 import umcStudy.springStudy.validation.annotation.ExistStore;
 import umcStudy.springStudy.web.dto.request.ReviewRequest;
 import umcStudy.springStudy.web.dto.response.MemberResponseDTO;
@@ -51,8 +52,8 @@ public class ReviewRestController {
             @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!"),
             @Parameter(name = "page", description = "페이지 번호, 0번이 1 페이지 입니다.", example = "1"),
     })
-    public ApiResponse<StoreResponseDTO.ReviewPreViewListDTO> getReviewList(@PathVariable(name = "storeId") Long storeId, @RequestParam(name = "page") Integer page){
-        Page<Review> reviewPage = storeQueryService.getReviewList(storeId,page);
+    public ApiResponse<StoreResponseDTO.ReviewPreViewListDTO> getReviewList(@PathVariable(name = "storeId") Long storeId, @RequestParam(name = "page") @CheckPaging Integer page){
+        Page<Review> reviewPage = storeQueryService.getReviewList(storeId,page-1);
         StoreResponseDTO.ReviewPreViewListDTO reviewPreViewListDTO = ReviewConverter.reviewPreViewListDTO(reviewPage);
         return ApiResponse.onSuccess(reviewPreViewListDTO);
     }
@@ -68,8 +69,8 @@ public class ReviewRestController {
             @Parameter(name="memberId", description = "회원 아이디, path variable입니다."),
             @Parameter(name = "page", description = "페이지 번호, 0번이 1 페이지 입니다.", example = "1"),
     })
-    public ApiResponse<MemberResponseDTO.ReviewListDTO> getMemberReviewList(@PathVariable(name="memberId") Long memberId, @RequestParam(name="page") Integer page){
-        Page<Review> reviewPage = memberCommandService.getReviewList(memberId, page);
+    public ApiResponse<MemberResponseDTO.ReviewListDTO> getMemberReviewList(@PathVariable(name="memberId") Long memberId, @RequestParam(name="page") @CheckPaging Integer page){
+        Page<Review> reviewPage = memberCommandService.getReviewList(memberId, page-1);
         MemberResponseDTO.ReviewListDTO reviewListDTO = ReviewConverter.reviewListDTO(reviewPage);
         return ApiResponse.onSuccess(reviewListDTO);
     }
