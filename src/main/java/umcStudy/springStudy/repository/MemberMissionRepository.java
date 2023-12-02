@@ -14,10 +14,8 @@ import umcStudy.springStudy.domain.Mission;
 public interface MemberMissionRepository extends JpaRepository<MemberMission, Long> {
 
     boolean existsByMemberIdAndMissionIdAndStatus(Long member_id, Long mission_id, String status);
-
-    Page<Mission> findAllByMemberAndStatus(Member member, String status, PageRequest pageRequest);
-
     @Query("SELECT mm.mission FROM MemberMission mm WHERE mm.member = :member AND mm.status = 'IN_PROGRESS'")
     Page<Mission> findInProgressMissionsByMember(@Param("member") Member member, PageRequest pageRequest);
 
+    MemberMission findByMissionId(Long missionId);
 }
